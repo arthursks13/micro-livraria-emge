@@ -12,14 +12,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/rodrigo-brito/shop-microservice.git"
+        "url": "git+https://github.com/arthursks13/micro-livraria-emge"
     },
     "author": "Rodrigo",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/rodrigo-brito/shop-microservice/issues"
+        "url": "https://github.com/arthursks13/micro-livraria-emge"
     },
-    "homepage": "https://github.com/rodrigo-brito/shop-microservice#readme",
+    "homepage": "https://github.com/arthursks13/micro-livraria-emge",
     "dependencies": {
         "@grpc/grpc-js": "^1.2.6",
         "@grpc/proto-loader": "^0.5.6",
