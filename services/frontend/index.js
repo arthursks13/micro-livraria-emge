@@ -16,7 +16,7 @@ function newBook(book) {
                 <div class="content book" data-id="${book.id}">
                     <div class="book-meta">
                         <p class="is-size-4">R$${book.price.toFixed(2)}</p>
-                        <p class="is-size-6">Disponível em estoque: 5</p>
+                        <p class="is-size-6">Disponível em estoque: ${book.quantity}</p>
                         <h4 class="is-size-3 title">${book.name}</h4>
                         <p class="subtitle">${book.author}</p>
                     </div>
@@ -32,6 +32,12 @@ function newBook(book) {
                 </div>
             </div>
         </div>`;
+    if (book.quantity == 0) {
+        $(document).ready( () => {
+            div.innerHTML += `<div class="alert alert-darger">Produto Indisponível </div>`
+            $(`#${book.id}`).prop("disabled", true);
+        })
+    }
     return div;
 }
 
