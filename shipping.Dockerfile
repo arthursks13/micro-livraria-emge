@@ -12,3 +12,4 @@ RUN npm install
 
 # Comando para inicializar (executar) a aplicação
 CMD ["node", "/app/services/shipping/index.js"]
+
