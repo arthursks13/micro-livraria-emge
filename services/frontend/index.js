@@ -34,7 +34,6 @@ function newBook(book) {
         </div>`;
     if (book.quantity == 0) {
         $(document).ready( () => {
-            div.innerHTML += `<div class="alert alert-darger">Produto Indisponível </div>`
             $(`#${book.id}`).prop("disabled", true);
         })
     }
