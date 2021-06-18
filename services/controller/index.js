@@ -43,18 +43,25 @@ app.get('/shipping/:cep', (req, res, next) => {
     );
 });
 
-app.get('/product/:id', (req, res, next) => {
-    // Chama método do microsserviço.
-    
-    inventory.SearchProductByID({ id: req.params.id }, (err, product) => {
-        // Se ocorrer algum erro de comunicação
-        // com o microsserviço, retorna para o navegador.
-        
+app.get('/product/:id/buy', (req, res, next) => {
+    inventory.UpdateInventory({ id: req.params.id }, (err, product) => {
         if (err) {
             console.error(err);
             res.status(500).send({ error: 'something failed :(' });
-        } 
-        else {     
+        } else {
+            res.json(product);
+        }
+    });
+});
+
+app.get('/product/:id', (req, res, next) => {
+    
+    inventory.SearchProductByID({ id: req.params.id }, (err, product) => {
+
+        if (err) {
+            console.error(err);
+            res.status(500).send({ error: 'something failed :(' });
+        } else {     
             res.json(product);
         }
     });
@@ -68,18 +75,6 @@ app.post('/product/:id', (req, res, next) => {
             res.status(500).send({ error: 'something failed :(' });
         } else {
             res.status(201).json(product);
-        }
-    });
-});
-
-app.get('/product/:id/buy', (req, res, next) => {
-    inventory.UpdateInventory({ id: req.params.id }, (err, product) => {
-        if (err) {
-            console.error(err);
-            res.status(500).send({ error: 'something failed :(' });
-        } 
-        else {
-            res.json(product);
         }
     });
 });
